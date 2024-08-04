@@ -1,0 +1,55 @@
+------- Basic Docker commands -------
+Dockerfile - FROM WORKDIR COPY RUN EXPOSE CMD ENTRYPOINT 
+
+docker pull <image_name>  || docker pull nginx:latest
+
+docker build .
+docker build -t myapp:20 .
+
+docker images || docker image ls
+docker ps -a or -qa
+
+docker run <image>
+docker run -p 3000:3000 <image>
+docker run -d -p 3000:3000 <image>
+docker run -d --rm -p 3000:3000 <image>
+docker run -d --rm --name amol -p 3000:3000 <image>
+docker run -d --rm --name amol -p 3000:3000 myapp:01
+
+# direect from registry 
+docker run -p 8080:80 nginx:latest
+
+# Interactive mode -it
+docker run --rm -it pyapp
+
+# delete image or container
+docker rmi <image>
+docker rm $(docker ps -qa)
+
+# volume addition using within commands path where your app copied
+docker run -it --rm -v myvol:/myapp/ <iamge>
+docker volume ls
+docker volume inspect myvol 
+
+#if your image has local file and you update the localfile, dont build image again, using -v to point to local file
+docker run --rm -v <local filepath>:<container path> <image>
+docker run --rm -v <local file>: <myapp/server.txt>
+
+# .dockeringore = file you want to ignore in build 
+
+# to see logs of containers
+docker logs <container name>
+
+docker run -d --env MYSQL_ROOT_PASSWORD="root" --env MYSQL_DATABASE="userinfo" --name mydb
+
+docker run -it --rm sqlconnect mysql
+docker build -t pyscript .
+
+# network 
+docker network ls
+docker network create my-net
+
+docker run -d --env MYSQL_ROOT_PASSWORD="root" --env MYSQL_DATABASE="userinfo" --network my-net --name mydb mysql 
+
+
+
