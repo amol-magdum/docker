@@ -24,4 +24,14 @@ Challenge 3: Run a container from your custom image, map necessary ports, and te
     - create a dockerfile (dockerfile_3)
     - build the docker file with tag name: docker build -t myflaskapp:v1 .
     - run the image : docker run -p 8080:5000 --name flask-container myflaskapp:v1
-    - 
+
+Challenge 4: Push your custom Docker image to Docker Hub.
+    - docker login
+    - docker tag myapp:v1 <your-dockerhub-username>/myapp:v1
+    - push image to docker hub : docker push your-dockerhub-username/myapp:v1
+    - verify image on dockerhub : docker search your-dockerhub-username/myapp
+
+Challenge 6: Run a detached container (-d flag), restart it, and check logs (docker logs <container_id>).
+    - docker run -d --name my-nginx -p 8080:80 nginx
+    - docker restart <container_id>
+    - docker logs <container_id>
