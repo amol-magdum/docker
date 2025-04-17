@@ -1,0 +1,27 @@
+Task 1: 
+    - Run an Nginx web server container: ocker run -d -p 80:80 nginx
+    - Open http://localhost in a browser to verify it's working.
+
+Challenge 1-a: Write a simple Dockerfile that runs a Python script using an official base image (python:3.9)
+    - use app.py file in same folder
+    - write a docker file (use dockerfile_1 in same folder)
+    - open terminal in dockerfile folder
+    - command: docker build -t python-app .
+
+    THIS WILL CREATE AN PYTHON-APP IMAGE, RUN IMAGE 
+
+    - docker run --rm python-app
+
+Challenge 1-b: Write a simple Dockerfile that serves a static HTML page using Nginx
+    - create index.html file
+    - create dockerfile_2
+    - biuld docker image using dockerfile : docker build -t nginx-static .
+    - run the docker image : docker run -d -p 8080:80 nginx-static
+    - opem localhot:8080 on host
+
+Challenge 3: Run a container from your custom image, map necessary ports, and test the app. (flask app)
+    - create python file for flask (flask_app.py)
+    - create a dockerfile (dockerfile_3)
+    - build the docker file with tag name: docker build -t myflaskapp:v1 .
+    - run the image : docker run -p 8080:5000 --name flask-container myflaskapp:v1
+    - 
